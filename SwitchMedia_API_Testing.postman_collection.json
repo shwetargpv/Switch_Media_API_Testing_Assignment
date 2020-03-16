@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "dd91bbf2-f9d6-450c-9503-44cfb2e91e1f",
+		"name": "SwitchMedia_API_Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET_List_Of_Channels",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5c24c6e5-3bf6-4dcf-bb1c-7ac1fbb563cd",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fvau-api-prod.switch.tv/content/v1/channels",
+					"protocol": "https",
+					"host": [
+						"fvau-api-prod",
+						"switch",
+						"tv"
+					],
+					"path": [
+						"content",
+						"v1",
+						"channels"
+					]
+				},
+				"description": "Retrieve a list of channels"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_EPG_For_Given_Channel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f126f112-3b70-4e74-9f1a-3ebcf448580e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fvau-api-prod.switch.tv/content/v1/epgs/3201:0261:02E1?Start=2020-03-16T20:33:00+00:00&End=2020-03-22T20:33:00+00:00&Start:asc",
+					"protocol": "https",
+					"host": [
+						"fvau-api-prod",
+						"switch",
+						"tv"
+					],
+					"path": [
+						"content",
+						"v1",
+						"epgs",
+						"3201:0261:02E1"
+					],
+					"query": [
+						{
+							"key": "Start",
+							"value": "2020-03-16T20:33:00+00:00"
+						},
+						{
+							"key": "End",
+							"value": "2020-03-22T20:33:00+00:00"
+						},
+						{
+							"key": "Start:asc",
+							"value": null
+						}
+					]
+				},
+				"description": "Get the EPG for a specific channel"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
