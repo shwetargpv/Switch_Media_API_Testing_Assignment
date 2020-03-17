@@ -62,7 +62,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://fvau-api-prod.switch.tv/content/v1/epgs/3201:0261:02E1?Start=2020-03-16T20:33:00+00:00&End=2020-03-22T20:33:00+00:00&Start:asc",
+					"raw": "https://fvau-api-prod.switch.tv/content/v1/epgs/{{dvb_triplet}}?start=2020-03-20T00:00:01&end=2020-03-20T23:59:00&sort=start&limit=100",
 					"protocol": "https",
 					"host": [
 						"fvau-api-prod",
@@ -73,26 +73,60 @@
 						"content",
 						"v1",
 						"epgs",
-						"3201:0261:02E1"
+						"{{dvb_triplet}}"
 					],
 					"query": [
 						{
-							"key": "Start",
-							"value": "2020-03-16T20:33:00+00:00"
+							"key": "start",
+							"value": "2020-03-20T00:00:01"
 						},
 						{
-							"key": "End",
-							"value": "2020-03-22T20:33:00+00:00"
+							"key": "end",
+							"value": "2020-03-20T23:59:00"
 						},
 						{
-							"key": "Start:asc",
-							"value": null
+							"key": "sort",
+							"value": "start"
+						},
+						{
+							"key": "limit",
+							"value": "100"
 						}
 					]
 				},
 				"description": "Get the EPG for a specific channel"
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0c9c0ac2-aed1-49ca-b97e-e63e6ac26747",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "cea4fb88-4cd6-45c8-a318-a4b1b95a8265",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "06810eae-6ee2-4407-ae6f-90d77e9cb3b6",
+			"key": "dvb_triplet",
+			"value": "3202:0300:0301",
+			"type": "string"
 		}
 	],
 	"protocolProfileBehavior": {}
